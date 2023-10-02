@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import Carrinho from './Carrinho';
 export default function BarraBusca(props) {
     return (
@@ -58,7 +59,9 @@ export default function BarraBusca(props) {
                     >Buscar</button>
                 </div>
                 <div>
-                    <Carrinho />
+                    <Carrinho qtdCarrinho={props.carrinhoTamanho}
+                              showCarrinho={props.showCarrinho}
+                              setShowCarrinho={props.setShowCarrinho}/>
                 </div>
             </div>
             <div style={{

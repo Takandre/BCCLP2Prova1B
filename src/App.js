@@ -13,11 +13,30 @@ function App() {
   },[]);
 
   const [produtos, setProdutos] = useState([]);
+  const [carrinhoItens, setCarrinhoItens] = useState([]);
+  const [showCarrinho, setShowCarrinho] = useState(false);
+  let lista = localStorage;
+  for(let i=0; i<carrinhoItens.length; i++){
+    lista.setItem("id", carrinhoItens[i].id)
+    lista.setItem("titulo", carrinhoItens[i].title)
+  }
+
   return (
     <div className="App">
       <Cabecalho/>
-      <BarraBusca/>
-      <GradeProdutos listaProdutos={produtos}/>
+      <BarraBusca listaProdutos={produtos}
+                  carrinhoItens={carrinhoItens}
+                  setCarrinhoItens={setCarrinhoItens}
+                  carrinhoTamanho={carrinhoItens.length}
+                  showCarrinho={showCarrinho}
+                  setShowCarrinho={setShowCarrinho}
+                  />
+      <GradeProdutos listaProdutos={produtos}
+                     carrinhoItens={carrinhoItens}
+                     setCarrinhoItens={setCarrinhoItens}
+                     showCarrinho={showCarrinho}
+                     setShowCarrinho={setShowCarrinho}
+                     />
     </div>
   );
 }

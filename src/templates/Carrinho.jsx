@@ -22,7 +22,10 @@ export default function Carrinho(props) {
                     backgroundColor: "inherit",
                     border: '0px',
                 }
-                } type='button'>
+                } type='button'
+                  onClick={()=>{
+                    props.setShowCarrinho(!props.showCarrinho)
+                  }}>
                     <svg xmlns="http://www.w3.org/2000/svg"
                         width="32"
                         height="32"
@@ -49,7 +52,7 @@ export default function Carrinho(props) {
                 <p style={{
                     margin: '0px',
                     padding: '0px',
-                }}>{props.qtdCarrinho || 0} item</p>
+                }}>{props.qtdCarrinho || 0} item(ns)</p>
             </div>
             <div id='segurança' style={{
                 display: 'flex',
